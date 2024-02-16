@@ -36,7 +36,7 @@
 (cons 0 '(1 2 3))
 ```
 
-#Cálculo de 10 areas
+# Cálculo de 10 areas
 
 ```lsp
 (defun cuadrado()
