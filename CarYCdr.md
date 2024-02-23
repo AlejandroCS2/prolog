@@ -10,4 +10,9 @@
     (car (cdr (caar (cdr (cdr '((a) (b d) ((1 2) 3))))))); 2
     (caar (cddr '((a) (b d)( (1 2) 3)))); (1 2)
     (car (cdr (car (cddr '((a) (b d) ((1 2) 3))))));3
+;Tercer problema
+    (car (cdr (car (cdr (cdr (car (cdr (cdr '((1 2 3) (4 5 6) (((7 8 9 10)))))))))))); 4
+    (car (car (cdr (cdr (car (cdr (cdr (cdr '((1 2 3) (4 5 6) (((7 8 9 10)))))))))))); 7
+    (car (car (cdr (car (cdr (car (cdr (cdr '((1 2 3) (4 5 6) (((7 8 9 10)))))))))))); 3
+    (car (cdr (car (cdr (car (cdr (cdr (car (cdr (cdr (cdr '((1 2 3) (4 5 6) (((7 8 9 10))))))))))))))); 10
 ```
