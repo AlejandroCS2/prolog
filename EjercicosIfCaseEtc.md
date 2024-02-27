@@ -76,3 +76,17 @@
 
 (main)
 ```
+  3. Escriba un programa que pida una letra minúscula, el programa
+     deberá imprimir si la letra es una vocal (a,e,i,o,u), semivocal (y)
+     o una consonante.
+```lsp
+     (defun letras (letra)
+  (cond ((member letra '(#\a #\e #\i #\o #\u)) (format t "~a es una vocal." letra))
+        ((char= letra #\y) (format t "~a es una semivocal." letra))
+        (t (format t "~a es una consonante." letra))))
+
+(defun main2()
+  (format t "Ingrese una letra minuscula: ")
+  (setq letra (read-char))
+  (letras letra))
+  ```
