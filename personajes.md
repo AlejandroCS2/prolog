@@ -1,62 +1,69 @@
 # personajes 
 ```lsp
-(defparameter *nodes*  '((femenino (
-							(poderes (aire (Hola rayo))		
-									 (fuego(Hola fuego))		
-									 (tierra(Hola Tierra))		
-									 (agua (poder de agua)))))
-						 (masculino(
-							(aire (Hola rayo))		
-							(fuego(Hola fuego))		
-							(tierra(Hola Tierra))		
-									(agua (poder de agua))))
-						 (ovni(
-							   (aire (Hola rayo))		
-							   (fuego(Hola fuego))		
-							   (tierra(Hola Tierra))		
-							   (agua (poder de agua)))
-						  )
-						 (aleatorio(
-							   (aire (Hola rayo))		
-							   (fuego(Hola fuego))		
-							   (tierra(Hola Tierra))		
-									(agua (poder de agua)))
-						  )
-
-
-						 )
-
-  )
-(defun adivina()
-  (format t "Piensa en un personaje y responde a las preguntas.~%")
-  (let ((current-nodes *nodes*))
-    (loop
-      (if (null current-nodes)
-          (format t "No se encontraron más personajes.~%")
-          (progn
-            (format t "¿Es tu personaje femenino? (s/n): ")
-            (let ((respuesta (read)))
-              (cond
-                ((equal respuesta 's)
-                 (progn
-                   (format t "Tu personaje es femenino. Aquí están sus datos:~%")
-                   (dolist (atributos (cadr (assoc 'femenino *nodes*)))
-                     (dolist (atributo atributos)
-                       (format t "~a~%" atributo))))
-                 (return))
-                ((equal respuesta 'n)
-                 (setq current-nodes (cdr current-nodes))
-                 (if (null current-nodes)
-                     (format t "No se encontraron más personajes.~%")
-                     (format t "¿Es tu personaje masculino? (s/n): ")))
-                (t
-                 (format t "Respuesta no válida. Por favor responde 's' o 'n'.~%")
-                )
-              )
-            )
-           )
-      )
-    )
-  )
+(defparameter *jugadores* '((femenino
+                               (jugadoras
+                                (diana-taurasi (Descripcion
+                                                (ella "Hola rayo")))
+                                (sue-bird (Descripcion
+                                                (ella "Hola rayo")))
+                                (Maya-Moore (Descripcion
+                                                (ella "Hola rayo")))
+                                (Tamika-Catchings (Descripcion
+                                                (ella "Hola rayo")))
+                                (Lisa-Leslie (Descripcion
+                                                (ella "Hola rayo")))
+                                (Sheryl-Swoopes (Descripcion
+                                                (ella "Hola rayo")))
+                                (Tina-Thompson (Descripcion
+                                                (ella "Hola rayo")))
+                                (Candace-Parker (Descripcion
+                                                (ella "Hola rayo")))
+                                (Breanna-Stewart (Descripcion
+                                                (ella "Hola rayo")))
+                                ;; Agrega más jugadoras aquí
+                               )
+                               )
+                              (masculino
+                               (jugadores
+                               (estados-unidos
+                                (michael-jordan (Descripcion
+                                                (el "Hola rayo")))
+                                (lebron-james (Descripcion
+                                                (el "Hola rayo")))
+                                (Kobe-Bryant (Descripcion
+                                                (el "Hola rayo")))
+                                (Shaniquille-O'Neal (Descripcion
+                                                (el "Hola rayo")))
+                                (Magic-Johnson (Descripcion
+                                                (el "Hola rayo")))
+                                (Larry-Bird (Descripcion
+                                                (el "Hola rayo")))
+                                (Tim-Duncan (Descripcion
+                                                (el "Hola rayo")))
+                                (Kareem-Abdul-Jabbar (Descripcion
+                                                (el "Hola rayo")))
+                                )
+                                (nigeria
+                                  (Hakeem-Olajuwon (Descripcion
+                                                (el "Hola rayo"))) 
+                                )
+                                (alemania
+                                  (Dirk-Nowitzki (Descripcion
+                                                (el "Hola rayo")))
+                                )
+                              )
+                            )
+                          )
+)
+(defun adivinador()
+    (print "piensa en un jugador/a de basketball")
+    (print "tu personaje es Masculino o femenino? (m/f): ")
+    (setq respuesta (read-char))
+    (cond ( (char= respuesta #\f)
+                (car(cdr (assoc 'femenino *jugadores*))))
+            ((char= respuesta #\m)
+                (car(cdr (assoc 'masculino *jugadores*))))
+            (t (print "ingrese una letra valida"))
+    ) 
 )
 ```
